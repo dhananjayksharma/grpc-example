@@ -1,0 +1,21 @@
+NEED TO FIX:
+
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
+
+
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go get -u github.com/golang/protobuf/protoc-gen-go
+
+sudo apt  install protobuf-compiler
+ 
+protoc pb/phonebook.proto --go_out=plugins=grpc:.
+
+ 
+go mod init dkgosql.com/phonebook-server
+
+
+go mod tidy
+
